@@ -7,13 +7,12 @@ const users = require("./router/users");
 const category = require("./router/category");
 const auth = require("./router/auth");
 
-app.options('/recipe/create', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.send();
-});
+const corsOptions = {
+	origin : '*',
+	optionsSuccessStatus: 200
+}
 
+app.use(cors(corsOptions))
 
 app.use(express.urlencoded({ extended: false }));
 
