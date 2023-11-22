@@ -7,12 +7,11 @@ const users = require("./router/users");
 const category = require("./router/category");
 const auth = require("./router/auth");
 
-app.use((req, res, next) => {
+app.options('/recipe/create', (req, res) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.header('Cache-Control', 'no-store');
-  next();
+  res.send();
 });
 
 
